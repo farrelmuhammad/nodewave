@@ -86,8 +86,8 @@ const Navbar = ({ theme, position }) => {
               <li className="ml-6 block md:hidden">
                 <button
                   className={[
-                    "flex z-50 items-center justify-center w-8 h-8 text-white md:text-white focus:outline-none",
-                    toggleMainMenu ? "fixed top-[20px] right-[16px] bg-black" : "relative",
+                    "flex z-50 items-center justify-center w-8 h-8 text-black md:text-black focus:outline-none",
+                    toggleMainMenu ? "fixed top-0 right-0" : "relative",
                     theme === "white"
                       ? "text-black md:text-white"
                       : "text-black md:text-black ",
