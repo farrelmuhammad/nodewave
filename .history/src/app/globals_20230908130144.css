@@ -29,24 +29,14 @@ body {
     rgb(var(--background-start-rgb));
 }
 
- /* ===== Scrollbar CSS ===== */
-  /* Firefox */
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: #857d87 #ffffff;
+@media only screen and (max-width: 768px) {
+  .hero .hero-image,
+  .hero .hero-caption {
+    min-height: 90vh;
   }
-
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 10px;
+  .hero .hero-cta {
+    @apply w-12 h-12;
+    transform: translateX(-75px) translateY(-50%);
+    background-size: 37.5%;
   }
-
-  *::-webkit-scrollbar-track {
-    background: #ffffff;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background-color: #857d87;
-    border-radius: 10px;
-    border: 3px solid #ffffff;
-  }
+}
