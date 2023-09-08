@@ -36,7 +36,7 @@ const Navbar = ({ theme, position }) => {
                   className={[
                     "hover:underline",
                     theme === "white"
-                      ? "text-black md:text-white"
+                      ? "text-black md:text-black"
                       : "text-black md:text-black ",
                   ].join(" ")}
                 >

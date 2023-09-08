@@ -23,7 +23,7 @@ const Navbar = ({ theme, position }) => {
           <div className="w-auto">
             <ul
               className={[
-                "fixed bg-gray-100 bg-opacity-100 inset-0 flex flex-col items-center justify-center opacity-0 md:visible md:flex-row md:bg-transparent md:relative md:opacity-100 md:flex md:items-center",
+                "fixed bg-black inset-0 flex flex-col items-center justify-center opacity-0 md:visible md:flex-row md:bg-transparent md:relative md:opacity-100 md:flex md:items-center",
                 toggleMainMenu
                   ? "opacity-100 z-30 visible"
                   : "invisible opacity-0",

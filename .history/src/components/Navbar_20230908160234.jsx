@@ -89,7 +89,7 @@ const Navbar = ({ theme, position }) => {
                     "flex z-50 items-center justify-center w-8 h-8 text-white md:text-white focus:outline-none",
                     toggleMainMenu ? "fixed top-0 right-0" : "relative",
                     theme === "white"
-                      ? "text-black md:text-white"
+                      ? "text-black md:text-black"
                       : "text-black md:text-black ",
                   ].join(" ")}
                   onClick={() => setToggleMainMenu((prev) => !prev)}

@@ -1,8 +1,7 @@
-"use client";
 import React, { useState } from "react";
 import Image from "next/image";
 
-const Navbar = ({ theme, position }) => {
+const Navbar = () => {
   const [toggleMainMenu, setToggleMainMenu] = useState(false);
 
   return (
@@ -23,7 +22,7 @@ const Navbar = ({ theme, position }) => {
           <div className="w-auto">
             <ul
               className={[
-                "fixed bg-gray-100 bg-opacity-100 inset-0 flex flex-col items-center justify-center opacity-0 md:visible md:flex-row md:bg-transparent md:relative md:opacity-100 md:flex md:items-center",
+                "fixed bg-white inset-0 flex flex-col items-center justify-center opacity-0 md:visible md:flex-row md:bg-transparent md:relative md:opacity-100 md:flex md:items-center",
                 toggleMainMenu
                   ? "opacity-100 z-30 visible"
                   : "invisible opacity-0",
@@ -47,7 +46,7 @@ const Navbar = ({ theme, position }) => {
                 <a
                   to="/mobile-apps"
                   className={[
-                    "hover:underline whitespace-nowrap overflow-ellipsis",
+                    "hover:underline",
                     theme === "white"
                       ? "text-black md:text-white"
                       : "text-black md:text-black ",
@@ -69,11 +68,16 @@ const Navbar = ({ theme, position }) => {
                   Portfolio
                 </a>
               </li>
-              <li class="mx-3 py-6 md:py-0">
+              <li className="mx-3 py-6 md:py-0">
                 <button class="px-4 py-2 bg-[#00AD98] rounded-full">
                   <a
-                    href="#"
-                    class="text-black md:text-white hover:underline whitespace-nowrap overflow-ellipsis"
+                    to="/rewards"
+                    className={[
+                      "hover:underline",
+                      theme === "white"
+                        ? "text-black md:text-white"
+                        : "text-black md:text-black ",
+                    ].join(" ")}
                   >
                     Make an App
                   </a>

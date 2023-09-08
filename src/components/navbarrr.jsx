@@ -1,11 +1,32 @@
-"use client";
-import React, { useState } from "react";
-import Image from "next/image";
+import React, { useLayoutEffect, useState } from "react";
+import { useRef } from "react";
+import { a } from "react-router-dom";
+import Logo from "../assets/images/content/logo.png";
+import { useGlobalContext } from "../helpers/hooks/useGlobalContext";
 
-const Navbar = ({ theme, position }) => {
+import { ReactComponent as IconCart } from "../assets/images/content/icon-cart.svg";
+
+const Header = ({ theme, position }) => {
   const [toggleMainMenu, setToggleMainMenu] = useState(false);
+  const [isCartChanged, setCartChanged] = useState(false);
+  const { state } = useGlobalContext();
+
+  const prevCart = useRef(state?.cart || {});
+
+  useLayoutEffect(() => {
+    if (prevCart.current !== state.cart) {
+      prevCart.current = state?.cart || {};
+      setCartChanged(true);
+      setTimeout(() => {
+        setCartChanged(false);
+      }, 550);
+    }
+  }, [state.cart]);
 
   return (
+    <header class="absolute w-full z-50 px-4">
+      <div class="container mx-auto py-5">
+        <div class="flex flex-stretch items-center">
     <header className={[position, "w-full z-40 px-4"].join(" ")}>
       <div className="container mx-auto py-5">
         <div className="flex flex-stretch items-center">
@@ -20,10 +41,10 @@ const Navbar = ({ theme, position }) => {
             </a>
           </div>
           <div className="w-full"></div>
-          <div className="w-auto">
+          <div className="w-auto py-4">
             <ul
               className={[
-                "fixed bg-gray-100 bg-opacity-100 inset-0 flex flex-col items-center justify-center opacity-0 md:visible md:flex-row md:bg-transparent md:relative md:opacity-100 md:flex md:items-center",
+                "fixed bg-white inset-0 flex flex-col invisible items-center justify-center opacity-0 md:visible md:flex-row md:bg-transparent md:relative md:opacity-100 md:flex md:items-center",
                 toggleMainMenu
                   ? "opacity-100 z-30 visible"
                   : "invisible opacity-0",
@@ -47,7 +68,7 @@ const Navbar = ({ theme, position }) => {
                 <a
                   to="/mobile-apps"
                   className={[
-                    "hover:underline whitespace-nowrap overflow-ellipsis",
+                    "hover:underline",
                     theme === "white"
                       ? "text-black md:text-white"
                       : "text-black md:text-black ",
@@ -69,15 +90,22 @@ const Navbar = ({ theme, position }) => {
                   Portfolio
                 </a>
               </li>
-              <li class="mx-3 py-6 md:py-0">
-                <button class="px-4 py-2 bg-[#00AD98] rounded-full">
-                  <a
-                    href="#"
-                    class="text-black md:text-white hover:underline whitespace-nowrap overflow-ellipsis"
-                  >
-                    Make an App
-                  </a>
+              <li className="mx-3 py-6 md:py-0">
+              <button class="px-4 py-2 bg-[#00AD98] rounded-full">
+                <a
+                  to="/rewards"
+                  className={[
+                    "hover:underline",
+                    theme === "white"
+                      ? "text-black md:text-white"
+                      : "text-black md:text-black ",
+                  ].join(" ")}
+                >
+                                      Make an App
+
+                </a>
                 </button>
+
               </li>
             </ul>
           </div>
@@ -114,4 +142,4 @@ const Navbar = ({ theme, position }) => {
   );
 };
 
-export default Navbar;
+export default Header;

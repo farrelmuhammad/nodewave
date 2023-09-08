@@ -23,14 +23,14 @@ const Navbar = ({ theme, position }) => {
           <div className="w-auto">
             <ul
               className={[
-                "fixed bg-gray-100 bg-opacity-100 inset-0 flex flex-col items-center justify-center opacity-0 md:visible md:flex-row md:bg-transparent md:relative md:opacity-100 md:flex md:items-center",
+                "fixed bg-white inset-0 flex flex-col items-center justify-center opacity-0 md:visible md:flex-row md:bg-transparent md:relative md:opacity-100 md:flex md:items-center",
                 toggleMainMenu
                   ? "opacity-100 z-30 visible"
                   : "invisible opacity-0",
               ].join(" ")}
               id="menu"
             >
-              <li className="mx-3 py-6 md:py-0">
+              <li className="mx-2 py-4 md:py-0">
                 <a
                   to="/website"
                   className={[
@@ -47,7 +47,7 @@ const Navbar = ({ theme, position }) => {
                 <a
                   to="/mobile-apps"
                   className={[
-                    "hover:underline whitespace-nowrap overflow-ellipsis",
+                    "hover:underline",
                     theme === "white"
                       ? "text-black md:text-white"
                       : "text-black md:text-black ",
@@ -79,6 +79,21 @@ const Navbar = ({ theme, position }) => {
                   </a>
                 </button>
               </li>
+              {/* <li className="mx-3 py-6 md:py-0">
+                <button class="px-4 py-2 bg-[#00AD98] rounded-full">
+                  <a
+                    to="/rewards"
+                    className={[
+                      "hover:underline",
+                      theme === "white"
+                        ? "text-black md:text-white"
+                        : "text-black md:text-black ",
+                    ].join(" ")}
+                  >
+                    Make an App
+                  </a>
+                </button>
+              </li> */}
             </ul>
           </div>
           <div className="w-auto">

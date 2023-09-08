@@ -7,7 +7,7 @@ import Testimonial from '@/components/Testimonial'
 export default function Home() {
   return (
     <>
-      <Navbar theme="white" position="absolute" />
+      <Navbar theme="white" position="absolute"/>
       <Hero />
       <Product />
       <Testimonial />
